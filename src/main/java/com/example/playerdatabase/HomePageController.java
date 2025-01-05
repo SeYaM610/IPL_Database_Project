@@ -1,5 +1,6 @@
 package com.example.playerdatabase;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,4 +78,29 @@ public class HomePageController {
                 ("Sunrisers Hyderabad".equals(username) && "sh".equals(password)) ;
     }
 
+    public void OnCLickExit(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
+    }
+//    private void exitApplication() {
+//        try {
+//            // Close network sockets
+//            if (socketWrapper != null) {
+//                socketWrapper.closeConnection();
+//            }
+//
+//            // Stop threads
+//            if (readThread != null && readThread.isAlive()) {
+//                readThread.interrupt();
+//            }
+//
+//            // Exit the JavaFX application
+//            Platform.exit();
+//
+//            // Optional: Ensure JVM termination
+//            System.exit(0);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

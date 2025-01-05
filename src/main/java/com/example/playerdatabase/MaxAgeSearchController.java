@@ -11,6 +11,10 @@ public class MaxAgeSearchController {
 //    HomePageController HPCon = new HomePageController();
 
     Main obj;
+    String username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public MaxAgeSearchController() throws IOException {
     }
@@ -25,6 +29,6 @@ public class MaxAgeSearchController {
 
 
         ArrayList<Player> players = database.MaxAgeInClub(CLubName.getText());
-//        obj.gotoPlayerInfo(players,username);
+        obj.gotoPlayerInfo(players,username);
     }
 }

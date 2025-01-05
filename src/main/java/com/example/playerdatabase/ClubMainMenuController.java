@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -142,6 +144,8 @@ public class ClubMainMenuController {
 
                 sellButton.setStyle("-fx-background-color: #ff6666; -fx-text-fill: white; -fx-font-weight: bold;");
                 sellButton.setAlignment(Pos.CENTER);
+                sellButton.setOnMouseEntered(event -> sellButton.setCursor(Cursor.HAND));
+                sellButton.setOnMouseExited(event -> sellButton.setCursor(Cursor.DEFAULT));
             }
 
 //            @Override
@@ -157,10 +161,12 @@ public class ClubMainMenuController {
     }
     private void sellPlayer(Player player) throws Exception {
         players.remove(player); // Remove player from local list
+
         CricketPlayerDatabase database = new CricketPlayerDatabase();
         database.deletePlayer(player,"None");
 
         socketWrapper.write(player);
+        socketWrapper.write("Sell");
 
 //        Platform.runLater(() -> obj.showAlert("Player Sold", "Player " + player.getName() + " has been sold."));
     }
@@ -366,7 +372,40 @@ public class ClubMainMenuController {
 
     public void OnClickAvailablePlayers(ActionEvent actionEvent) throws Exception {
 
-        PlayerAvailableController pa = new PlayerAvailableController();
-        pa.LoadAvailablePlayer(UserName,stage,socketWrapper,obj);
+//        PlayerAvailableController pa = new PlayerAvailableController();
+//        pa.LoadAvailablePlayer(UserName,stage,socketWrapper,obj);
+
+
+        MainReadThread readThread;
+//        public void LoadAvailablePlayer(String UserName,Stage stage,SocketWrapper socketWrapper,Main obj) throws Exception {
+//        this.obj =obj;
+//            this.stage = stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Player_Available.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
+
+
+            PlayerAvailableController controller = fxmlLoader.getController();
+            controller.setUsername(UserName);
+            controller.setImage(UserName);
+            controller.setObj(obj);
+            controller.setSocketWrapper(socketWrapper);
+
+//            if (readThread == null) {
+                readThread = new MainReadThread(socketWrapper,controller);
+                readThread.start();
+//            }
+//        this.playerList = readThread.getAvailablePlayers();
+            controller.PlayerInfoTable(readThread.getAvailablePlayers());
+
+            stage.setTitle("Available Player Info");
+            stage.setScene(scene);
+            stage.show();
+
+//        }
+    }
+
+    public void OnCLickExit(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 }

@@ -7,12 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import kotlin.jvm.Synchronized;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,10 +22,9 @@ import java.util.ArrayList;
 public class PlayerAvailableController  {
 
     public Label ClubName;
-    public ImageView clubLogo;
     private Stage stage;
 
-    public ImageView image;
+    public ImageView clubLogo;
     String UserName;
 
     Main obj;
@@ -34,39 +35,79 @@ public class PlayerAvailableController  {
     public void setImage(String username) {
         UserName = username;
 
-        if(username.equals("Rajasthan Royals") ) {
-            javafx.scene.image.Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/rr.png").toExternalForm());
-            image.setImage(img);
-            image.setFitWidth(200); // Resize
-            image.setFitHeight(150);
+        if(username.equals("Chennai Super Kings") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/csk.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Delhi Capitals") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/dc.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
         }
         if(username.equals("Gujarat Titans") ) {
             Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/gt.png").toExternalForm());
-            image.setImage(img);
-            image.setFitWidth(200); // Resize
-            image.setFitHeight(150);
-        }
-        if(username.equals("Chennai Super Kings") ) {
-            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/csk.png").toExternalForm());
-            image.setImage(img);
-            image.setFitWidth(200); // Resize
-            image.setFitHeight(150);
-        }
-        if(username.equals("Mumbai Indians") ) {
-            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/mi.png").toExternalForm());
-            image.setImage(img);
-            image.setFitWidth(200); // Resize
-            image.setFitHeight(150);
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
         }
         if(username.equals("Kolkata Knight Riders") ) {
             Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/kkr.png").toExternalForm());
-            image.setImage(img);
-            image.setFitWidth(200); // Resize
-            image.setFitHeight(150);
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Lucknow Super Giants") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/lsg.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Mumbai Indians") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/mi.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Punjab Kings") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/pk.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Rajasthan Royals") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/rr.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Royal Challengers Bangalore") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/rcb.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
+        }
+        if(username.equals("Sunrisers Hyderabad") ) {
+            Image img = new Image(getClass().getResource("/com/example/playerdatabase/images/srh.png").toExternalForm());
+            clubLogo.setImage(img);
+            clubLogo.setFitWidth(320); // Resize
+            clubLogo.setFitHeight(240);
+            ClubName.setText(username);
         }
     }
 
-//    private Main obj; // Reference to Main for navigation
+    //    private Main obj; // Reference to Main for navigation
     private final ObservableList<Player> players = FXCollections.observableArrayList(); // List for table data
 
     @FXML
@@ -84,32 +125,6 @@ public class PlayerAvailableController  {
             Weekly_Salary.setCellValueFactory(new PropertyValueFactory<>("weeklySalary"));
 
         }
-    }
-
-    MainReadThread readThread;
-    public void LoadAvailablePlayer(String UserName,Stage stage,SocketWrapper socketWrapper,Main obj) throws Exception {
-//        this.obj =obj;
-        this.stage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Player_Available.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
-
-
-        PlayerAvailableController controller = fxmlLoader.getController();
-        controller.setUsername(UserName);
-        controller.setImage(UserName);
-        controller.setObj(obj);
-
-        if (readThread == null) {
-            readThread = new MainReadThread(socketWrapper);
-            readThread.start();
-        }
-//        this.playerList = readThread.getAvailablePlayers();
-        controller.PlayerInfoTable(readThread.getAvailablePlayers());
-
-        stage.setTitle("Available Player Info");
-        stage.setScene(scene);
-        stage.show();
-
     }
 
 
@@ -146,6 +161,33 @@ public class PlayerAvailableController  {
         addBuyButtonColumn();
 
         PlayerTable.setItems(players); // Set observable list to table
+
+        Name.setCellFactory(column -> {
+
+            return new TableCell<Player, String>() {
+
+                @Override
+                protected void updateItem(String item, boolean empty) {
+
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText(null);
+                        setGraphic(null);
+                        setCursor(Cursor.DEFAULT); // Default cursor for empty cells
+                    } else {
+                        setText(item);
+                        setGraphic(null);
+                        setCursor(Cursor.HAND); // Change cursor to hand on hover
+                        setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 1) {
+                                Player selectedPlayer = getTableView().getItems().get(getIndex());
+                                obj.gotoPlayerDetails(selectedPlayer,UserName); // Handle click event
+                            }
+                        });
+                    }
+                }
+            };
+        });
     }
 
     private void addBuyButtonColumn() {
@@ -164,6 +206,8 @@ public class PlayerAvailableController  {
 
                 buyButton.setStyle("-fx-background-color: #ff6666; -fx-text-fill: white; -fx-font-weight: bold;");
                 buyButton.setAlignment(Pos.CENTER);
+                buyButton.setOnMouseEntered(event -> buyButton.setCursor(Cursor.HAND));
+                buyButton.setOnMouseExited(event -> buyButton.setCursor(Cursor.DEFAULT));
             }
 
             @Override
@@ -177,20 +221,31 @@ public class PlayerAvailableController  {
             }
         });
     }
+    SocketWrapper socketWrapper;
+    void setSocketWrapper(SocketWrapper socketWrapper)
+    {
+        this.socketWrapper = socketWrapper;
+    }
 
     // Buy a player
     private void buyPlayer(Player player) throws Exception {
         players.remove(player); // Remove player from local list
         CricketPlayerDatabase database = new CricketPlayerDatabase();
         database.deletePlayer(player,UserName);
-   }
+        socketWrapper.write(player);
+        socketWrapper.write("Buy");
+    }
 
+    public void  updatePlayerTable(ArrayList<Player> updatedPlayerList) {
+        System.out.println("Updating Players");
+        Platform.runLater(() -> {
 
-//    public void updatePlayerTable(ArrayList<Player> updatedPlayerList) {
-//        Platform.runLater(() -> {
-//            players.setAll(updatedPlayerList); // Update observable list on the JavaFX thread
-//        });
-//    }
+            players.setAll(updatedPlayerList); // Update observable list on the JavaFX thread
+//            PlayerTable.getItems().clear();
+            PlayerTable.setItems(players);
+            PlayerTable.refresh();
+        });
+    }
 
     private void alignColumnsToCenter() {
         alignColumnToCenter(Name);

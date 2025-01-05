@@ -48,7 +48,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fx:id="jersey" fitHeight="256.0" fitWidth="229.0" layoutX="60.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="jersey" fitHeight="256.0" fitWidth="229.0" layoutX="72.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" />
       <VBox layoutX="1016.0" layoutY="30.0" prefHeight="170.0" prefWidth="522.0" spacing="5.0">
          <children>
             <Label fx:id="owner" prefHeight="47.0" prefWidth="523.0" textFill="#f2efeb">
@@ -94,7 +94,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button layoutX="1362.0" layoutY="681.0" mnemonicParsing="false" onAction="#OnCllickLogOut" prefHeight="49.0" prefWidth="138.0" text="LogOut">
+            <Button layoutX="1362.0" layoutY="675.0" mnemonicParsing="false" onAction="#OnCllickLogOut" prefHeight="49.0" prefWidth="138.0" text="LogOut">
                 <font>
                     <Font name="Bell MT Bold" size="26.0" />
                 </font>
@@ -125,5 +125,13 @@
             <Image url="@images/download.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="1381.0" layoutY="733.0" mnemonicParsing="false" onAction="#OnCLickExit" prefHeight="46.0" prefWidth="99.0" text="EXIT" textFill="#3a3479">
+         <font>
+            <Font name="Algerian" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

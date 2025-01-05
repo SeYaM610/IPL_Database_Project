@@ -22,9 +22,9 @@
             <Image url="@images/Indian-Premier-League-Logo-color-removebg-preview.jpg" />
          </image>
       </ImageView>
-    <Button layoutX="553.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="444.0" scaleZ="2.0" text="Welcome to IPL Database" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="553.0" AnchorPane.topAnchor="23.0">
+    <Button layoutX="511.2" layoutY="22.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="500.0" scaleZ="2.0" text="Welcome to IPL Database" AnchorPane.bottomAnchor="683.0" AnchorPane.leftAnchor="511.0" AnchorPane.rightAnchor="539.0" AnchorPane.topAnchor="22.0">
          <font>
-            <Font name="Bell MT Bold" size="33.0" />
+            <Font name="Bell MT Bold" size="30.0" />
          </font>
       </Button>
       <TextField fx:id="UserName" alignment="CENTER" layoutX="619.0" layoutY="316.0" prefHeight="50.0" prefWidth="312.0" promptText="UserName" scaleZ="2.0">
@@ -63,5 +63,13 @@
             <Image url="@images/pic.png" />
          </image>
       </ImageView>
+      <Button layoutX="1194.0" layoutY="723.0" mnemonicParsing="false" onAction="#OnCLickExit" prefHeight="36.0" prefWidth="106.0" text="EXIT" textFill="#3a3479">
+         <font>
+            <Font name="Algerian" size="27.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

@@ -64,6 +64,7 @@ public class Main extends Application {
 
         AdminMainMenuController MMenu = fxmlLoader.getController();
         MMenu.setObj(this);
+        MMenu.setSocketWrapper(socketWrapper);
 
         stage.setTitle("MainMenu");
         stage.setScene(scene);
@@ -97,6 +98,7 @@ public class Main extends Application {
         PlayerSearchController PSearch = fxmlLoader.getController();
         PSearch.setObj(this);
         PSearch.setUsername(username);
+        PSearch.setImage(username);
 
         stage.setTitle("Player Search");
         stage.setScene(scene);
@@ -117,39 +119,42 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void gotoPlayerSearchByCountry() throws  IOException
+    public void gotoPlayerSearchByCountry(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SearchingByCountry.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         SearchingByCountryController PSearchCountry = fxmlLoader.getController();
         PSearchCountry.setObj(this);
+        PSearchCountry.setUsername(username);
 
         stage.setTitle("Player Search By Country");
         stage.setScene(scene);
         stage.show();
     }
 
-    public void gotoPlayerSearchByPosition() throws  IOException
+    public void gotoPlayerSearchByPosition(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SearchingByPosition.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         SearchingByPositionController PSearchPosition = fxmlLoader.getController();
         PSearchPosition.setObj(this);
+        PSearchPosition.setUsername(username);
 
         stage.setTitle("Player Search By Position");
         stage.setScene(scene);
         stage.show();
     }
 
-    public void gotoPlayerSearchBySalaryRange() throws  IOException
+    public void gotoPlayerSearchBySalaryRange(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SearchingBySalaryRange.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         SearchingBySalaryRangeController PSearchSalary = fxmlLoader.getController();
         PSearchSalary.setObj(this);
+        PSearchSalary.setUsername(username);
 
         stage.setTitle("Player Search By Salary Range");
         stage.setScene(scene);
@@ -158,37 +163,40 @@ public class Main extends Application {
 
 
 
-    public void gotoMaxSalaryPlayer() throws  IOException
+    public void gotoMaxSalaryPlayer(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MaxSalarySearch.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         MaxSalarySearchController MaxSalary = fxmlLoader.getController();
         MaxSalary.setObj(this);
+        MaxSalary.setUsername(username);
 
         stage.setTitle("Player Search By Max Salary");
         stage.setScene(scene);
         stage.show();
     }
-    public void gotoMaxAgePlayer() throws  IOException
+    public void gotoMaxAgePlayer(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MaxAgeSearch.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         MaxAgeSearchController MaxAge = fxmlLoader.getController();
         MaxAge.setObj(this);
+        MaxAge.setUsername(username);
 
         stage.setTitle("Player Search By Max Age");
         stage.setScene(scene);
         stage.show();
     }
-    public void gotoMaxHeightPlayer() throws  IOException
+    public void gotoMaxHeightPlayer(String username) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MaxHeightSearch.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1550, 780);
 
         MaxHeightSearchController MaxHeight = fxmlLoader.getController();
         MaxHeight.setObj(this);
+        MaxHeight.setUsername(username);
 
         stage.setTitle("Player Search By Max Height");
         stage.setScene(scene);
@@ -311,13 +319,11 @@ public class Main extends Application {
         ClubSearchController CSearch = fxmlLoader.getController();
         CSearch.setObj(this);
         CSearch.setUsername(username);
+        CSearch.setImage(username);
 
         stage.setTitle("Club Search");
         stage.setScene(scene);
         stage.show();
     }
 
-
-    public void showAlert(String playerSold, String s) {
-    }
 }

@@ -10,6 +10,10 @@ public class SearchingByCountryController {
     CricketPlayerDatabase database = new CricketPlayerDatabase();
     public TextField CountryName;
     Main obj;
+    String username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public SearchingByCountryController() throws IOException {
     }
@@ -22,6 +26,6 @@ public class SearchingByCountryController {
         PlayerInfoController info = new PlayerInfoController();
 
         ArrayList<Player> players = database.SearchingByCountry(CountryName.getText());
-//        obj.gotoPlayerInfo(players);
+        obj.gotoPlayerInfo(players,username);
     }
 }

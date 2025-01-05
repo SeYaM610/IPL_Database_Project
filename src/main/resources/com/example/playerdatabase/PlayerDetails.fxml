@@ -77,7 +77,7 @@
             <Image url="@images/pp.jpg" />
          </image></ImageView>
         <ImageView fx:id="flag" fitHeight="84.0" fitWidth="137.0" layoutX="987.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="position" fitHeight="181.0" fitWidth="195.0" layoutX="929.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="position" fitHeight="153.0" fitWidth="152.0" layoutX="929.0" layoutY="553.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="268.0" fitWidth="227.0" layoutX="-9.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/transparent-cricket-logo-cricket-ball-bat-on-black-1710873601934-removebg-preview.jpg" />

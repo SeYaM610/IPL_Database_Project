@@ -27,10 +27,12 @@ public class ServerReadThread extends Thread {
                 // Read inputs
 
                 Object o = socketWrapper.read();
-                if(o != null) {
+                Object o2 = socketWrapper.read();
+                if(o != null && o2 != null) {
                     Player player = (Player) o; // Player being sold
+                    String msg = (String) o2;
 //                    System.out.println("In ServerRead Sold Player - " + player.getName());
-                    broadcastPlayerUpdate(player);
+                    broadcastPlayerUpdate(player,msg);
                 }
             }
         } catch (Exception e) {
@@ -45,17 +47,20 @@ public class ServerReadThread extends Thread {
     }
 
     // Notify all other clients about the updated player list
-    private void broadcastPlayerUpdate(Player player) throws IOException {
+    private void broadcastPlayerUpdate(Player player,String msg) throws IOException {
         synchronized (SockList) {
 //            System.out.println("Debug: Broadcasting player - " + player.getName());
             for (SocketWrapper s : SockList) {
+                if(s != socketWrapper) {
 //                new Thread(() -> {
                     try {
                         s.write(player); // Write player data to the client socket
+                        s.write(msg);
                     } catch (IOException e) {
 //                        System.out.println("Error broadcasting player update: " + e.getMessage());
                     }
 //                }).start();
+                }
             }
         }
     }

@@ -10,6 +10,10 @@ public class MaxSalarySearchController {
     CricketPlayerDatabase database = new CricketPlayerDatabase();
 
     Main obj;
+    String username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public MaxSalarySearchController() throws IOException {
     }
@@ -24,6 +28,6 @@ public class MaxSalarySearchController {
         PlayerInfoController info = new PlayerInfoController();
 
         ArrayList<Player> players = database.MaxSalaryInClub(CLubName.getText());
-//        obj.gotoPlayerInfo(players);
+        obj.gotoPlayerInfo(players,username);
     }
 }

@@ -49,5 +49,10 @@
                 <Image url="@images/trendy-vector-cricket-logo-template-with-crossed-cricket-bats-ball_930510-1170-removebg-preview.jpg" />
             </image>
         </ImageView>
+      <ImageView fitHeight="198.0" fitWidth="193.0" layoutX="48.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/trendy-vector-cricket-logo-template-with-crossed-cricket-bats-ball_930510-1170-removebg-preview.jpg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

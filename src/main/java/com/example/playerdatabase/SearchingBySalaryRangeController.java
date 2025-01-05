@@ -10,6 +10,10 @@ public class SearchingBySalaryRangeController {
     CricketPlayerDatabase database = new CricketPlayerDatabase();
 
     Main obj;
+    String username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public SearchingBySalaryRangeController() throws IOException {
     }
@@ -24,12 +28,11 @@ public class SearchingBySalaryRangeController {
     }
 
     public void OnEnteringHighRange(ActionEvent actionEvent) throws Exception {
-        PlayerInfoController info = new PlayerInfoController();
 
-        int low = Integer.parseInt(LowRange.getText());
-        int high = Integer.parseInt(HighRange.getText());
+         int low = Integer.parseInt(LowRange.getText());
+         int high = Integer.parseInt(HighRange.getText());
 
         ArrayList<Player> players = database.SearchingBySalary(low,high);
-//        obj.gotoPlayerInfo(players);
+        obj.gotoPlayerInfo(players,username);
     }
 }

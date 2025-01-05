@@ -35,7 +35,7 @@
             <Font name="Comic Sans MS" size="40.0" />
          </font>
       </Label>
-      <ImageView fx:id="image" fitHeight="255.0" fitWidth="341.0" layoutX="1160.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="clubLogo" fitHeight="255.0" fitWidth="341.0" layoutX="1160.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
       <SplitPane layoutX="18.0" layoutY="15.0" opacity="0.33" orientation="VERTICAL" prefHeight="278.0" prefWidth="1542.0" style="-fx-background-color: navy;" />
       <ImageView fitHeight="181.0" fitWidth="326.0" layoutX="70.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>

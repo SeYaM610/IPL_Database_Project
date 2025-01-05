@@ -1,5 +1,6 @@
 package com.example.playerdatabase;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -36,8 +37,11 @@ public class AdminMainMenuController {
     @FXML
     public void setImage(String username) {
         // Ensure correct path for image
-
-
+    }
+    SocketWrapper socketWrapper;
+    void setSocketWrapper(SocketWrapper socketWrapper)
+    {
+        this.socketWrapper = socketWrapper;
     }
 
     Main obj;
@@ -66,6 +70,9 @@ public class AdminMainMenuController {
     try{
         Player p = new Player(name.getText(),country.getText(),Integer.parseInt(age.getText()),Double.parseDouble(height.getText()),"None",position.getText(),Integer.parseInt(jersey.getText()),Integer.parseInt(salary.getText()));
         dt.AddingPlayersToFile(p);
+
+        socketWrapper.write(p);
+        socketWrapper.write("Sell");
 
         // Show a congratulations alert
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -107,5 +114,10 @@ public class AdminMainMenuController {
         e.printStackTrace();
     }
 
+    }
+
+    public void OnCLickExit(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 }

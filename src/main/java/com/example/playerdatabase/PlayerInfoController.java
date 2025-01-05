@@ -258,6 +258,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -381,6 +382,33 @@ public class PlayerInfoController {
         alignColumnsToCenter();
 
         PlayerTable.setItems(players); // Set observable list to table
+
+        Name.setCellFactory(column -> {
+
+            return new TableCell<Player, String>() {
+
+                @Override
+                protected void updateItem(String item, boolean empty) {
+
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText(null);
+                        setGraphic(null);
+                        setCursor(Cursor.DEFAULT); // Default cursor for empty cells
+                    } else {
+                        setText(item);
+                        setGraphic(null);
+                        setCursor(Cursor.HAND); // Change cursor to hand on hover
+                        setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 1) {
+                                Player selectedPlayer = getTableView().getItems().get(getIndex());
+                                obj.gotoPlayerDetails(selectedPlayer,UserName); // Handle click event
+                            }
+                        });
+                    }
+                }
+            };
+        });
     }
 
 

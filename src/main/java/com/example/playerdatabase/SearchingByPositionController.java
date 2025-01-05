@@ -9,6 +9,10 @@ public class SearchingByPositionController {
     CricketPlayerDatabase database = new CricketPlayerDatabase();
 
     Main obj;
+    String username;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public SearchingByPositionController() throws IOException {
     }
@@ -23,6 +27,6 @@ public class SearchingByPositionController {
         PlayerInfoController info = new PlayerInfoController();
 
         ArrayList<Player> players = database.SearchingByPosition(PositionName.getText());
-//        obj.gotoPlayerInfo(players);
+        obj.gotoPlayerInfo(players,username);
     }
 }

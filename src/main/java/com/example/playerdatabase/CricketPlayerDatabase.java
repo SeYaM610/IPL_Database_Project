@@ -206,7 +206,7 @@ public class CricketPlayerDatabase {
         for(Player p : playerList)
         {
             String club = p.getClub();
-            ClubWiSalary.put(club, ClubWiSalary.getOrDefault(club, 0)+(p.getWeeklySalary()*52));
+            ClubWiSalary.put(club, ClubWiSalary.getOrDefault(club, 0)+(p.getWeeklySalary()));
         }
 
         return ClubWiSalary;
