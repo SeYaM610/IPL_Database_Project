@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="780.0" prefWidth="1550.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.playerdatabase.SearchingByPlayerNameController">
+   <children>
+      <TextField fx:id="PlayerName" alignment="CENTER" layoutX="609.0" layoutY="392.0" onAction="#OnEnteringName" prefHeight="46.0" prefWidth="330.0" promptText="Player Name">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </TextField>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" />
+    <Button layoutX="584.0" layoutY="273.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="381.0" text="Enter Player Name">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
